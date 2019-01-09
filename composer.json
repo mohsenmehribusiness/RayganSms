@@ -3,9 +3,8 @@
   "type": "library",
   "description": "A simple API extension for send text message By Raygan Sms",
   "keywords": [
-    "date",
-    "time",
-    "DateTime"
+    "trez",
+    "raygansms",
   ],
   "support": {
     "issues": "https://github.com/farhadmirzapour/RayganSms/issues",
