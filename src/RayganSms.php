@@ -50,7 +50,7 @@ class RayganSms
 //        $params = \array_merge($base, \array_filter($params));
 
 //        try {
-        $response = $this->client->request('POST', $this->endpoint, ['query' => $base]);
+        $response = $this->client->request('POST', $this->endpoint, ['form_params' => $base]);
 
         $response = \json_decode((string) $response->getBody(), true);
 
