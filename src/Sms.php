@@ -30,7 +30,7 @@ class Sms
         $this->password = $config['password'];
         $this->phone_number = $config['phone_number'];
         $this->endpoint = 'https://RayganSMS.com/SendMessageWithUrl.ashx';
-
+		
         $this->client = new HttpClient([
             'timeout' => 5,
             'connect_timeout' => 5,
