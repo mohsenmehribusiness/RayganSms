@@ -2,7 +2,6 @@
 
 namespace Trez\RayganSms\Facades;
 
-
 use Illuminate\Support\Facades\Facade;
 
 class RayganSms extends Facade
@@ -12,7 +11,3 @@ class RayganSms extends Facade
         return 'RayganSms';
     }
 }
-
-
-
-
