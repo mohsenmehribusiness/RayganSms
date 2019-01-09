@@ -4,7 +4,7 @@ namespace Trez\RayganSms;
 
 use Illuminate\Support\ServiceProvider;
 
-class ServiceProvider extends ServiceProvider
+class RayganSmsServiceProvider extends ServiceProvider
 {
     public function register()
     {

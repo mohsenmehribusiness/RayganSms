@@ -37,7 +37,10 @@
     "laravel": {
       "providers": [
         "Trez\\RayganSms\\ServiceProvider"
-      ]
+      ],
+        "aliases": {
+            "Bar": "Trez\\RayganSms\\Facades"
+        }
     }
   }
 }
