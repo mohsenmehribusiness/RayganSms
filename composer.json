@@ -39,7 +39,7 @@
         "Trez\\RayganSms\\RayganSmsServiceProvider"
       ],
         "aliases": {
-            "Bar": "Trez\\RayganSms\\Facades"
+            "RayganSms": "Trez\\RayganSms\\Facades"
         }
     }
   }
