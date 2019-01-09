@@ -1,18 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Farhad
- * Date: 1/9/2019
- * Time: 1:19 PM
- */
 
-namespace Trez;
+namespace Trez\RayganSms;
 
 use GuzzleHttp\Client as HttpClient;
 
-class RayganSms
+class Sms
 {
-
     /** @var HttpClient */
     protected $client;
 
@@ -20,19 +13,23 @@ class RayganSms
     protected $endpoint;
 
     /** @var string */
-    protected $login;
+    protected $user_name;
 
     /** @var string */
-    protected $secret;
+    protected $password;
+
+    /** @var string */
+    protected $phone_number;
 
     /** @var string */
     protected $sender;
 
     public function __construct(array $config)
     {
-        $this->login = $config['user_name'];
-        $this->secret = $config['password'];
-        $this->endpoint = 'http://smspanel.trez.ir/api/smsAPI/GetCredit';
+        $this->user_name = $config['user_name'];
+        $this->password = $config['password'];
+        $this->phone_number = $config['phone_number'];
+        $this->endpoint = 'https://RayganSMS.com/SendMessageWithUrl.ashx';
 
         $this->client = new HttpClient([
             'timeout' => 5,
@@ -40,29 +37,18 @@ class RayganSms
         ]);
     }
 
-    public function getCredit()
+    public function sendMessage($params)
     {
         $base = [
-            'Username'   => $this->login,
-            'Password'     => $this->secret,
+            'UserName' => $this->user_name,
+            'Password' => $this->password,
+            'PhoneNumber' => $this->phone_number,
+            'Smsclass' => '1',
         ];
 
-//        $params = \array_merge($base, \array_filter($params));
-
-//        try {
-        $response = $this->client->request('POST', $this->endpoint, ['form_params' => $base]);
-
-        $response = \json_decode((string) $response->getBody(), true);
-
-        if (isset($response['error'])) {
-            throw new \DomainException($response['error'], $response['error_code']);
-        }
-
-        echo $response;
-//        } catch (\DomainException $exception) {
-//            throw CouldNotSendNotification::smsRespondedWithAnError($exception);
-//        } catch (\Exception $exception) {
-//            throw CouldNotSendNotification::couldNotCommunicateWithSms($exception);
-//        }
+        $params = \array_merge($base, \array_filter($params));
+        $response = $this->client->request('GET', $this->endpoint, ['query' => $params]);
+        $response = \json_decode((string)$response->getBody(), true);
+        return $response;
     }
 }
