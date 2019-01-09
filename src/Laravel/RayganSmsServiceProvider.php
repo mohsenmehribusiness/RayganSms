@@ -12,9 +12,4 @@ class RayganSmsServiceProvider extends ServiceProvider
             return new Sms($app['config']['services.raygansms']);
         });
     }
-
-    public function register()
-    {
-        // Needed for Laravel < 5.3 compatibility
-    }
 }
