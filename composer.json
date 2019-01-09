@@ -24,9 +24,6 @@
     "guzzlehttp/guzzle": "^6.2",
     "ext-json": "*"
   },
-  "require-dev": {
-    "phpunit/phpunit": "^7.1.5"
-  },
   "autoload": {
     "psr-4": {
       "Trez\\RayganSms\\": "src/"
@@ -35,16 +32,6 @@
   "config": {
     "process-timeout": 0,
     "sort-packages": true
-  },
-  "scripts": {
-    "test": [
-      "@phpunit",
-      "@phpcs"
-    ],
-    "phpunit": "phpunit --verbose --coverage-clover=coverage.xml",
-    "phpcs": "php-cs-fixer fix -v --diff --dry-run",
-    "phpstan": "phpstan analyse --configuration phpstan.neon --level 3 src tests",
-    "phpdoc": "php phpdoc.php"
   },
   "extra": {
     "laravel": {
