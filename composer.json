@@ -1,15 +1,15 @@
 {
   "name": "trez/raygan-sms",
   "type": "library",
-  "description": "A simple API extension for DateTime.",
+  "description": "A simple API extension for send text message By Raygan Sms",
   "keywords": [
     "date",
     "time",
     "DateTime"
   ],
   "support": {
-    "issues": "https://github.com/briannesbitt/Carbon/issues",
-    "source": "https://github.com/briannesbitt/Carbon"
+    "issues": "https://github.com/farhadmirzapour/RayganSms/issues",
+    "source": "https://github.com/farhadmirzapour/RayganSms"
   },
   "license": "MIT",
   "authors": [
@@ -30,7 +30,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Trez\\RayganSms": "src/"
+      "Trez\\RayganSms\\": "src/"
     }
   },
   "config": {
