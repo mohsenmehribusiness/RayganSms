@@ -9,7 +9,8 @@ class RayganSmsServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton('RayganSms', function ($app) {
-            return new Sms($app['config']['services.raygansms']);
+            $conf = $app['config']['services.raygansms'];
+            return new Sms($conf['user_name'], $conf['password'], $conf['phone_number']);
         });
     }
 }

@@ -10,7 +10,10 @@ class Sms
     protected $client;
 
     /** @var string */
-    protected $endpoint;
+    protected $url_send_message;
+
+    /** @var string */
+    protected $url_send_auth_code;
 
     /** @var string */
     protected $user_name;
@@ -24,35 +27,82 @@ class Sms
     /** @var string */
     protected $sender;
 
-    public function __construct(array $config)
+    /**
+     * Sms constructor.
+     * @param string $user_name
+     * @param string $password
+     * @param string $phone_number
+     */
+    public function __construct($user_name, $password, $phone_number)
     {
-        $this->user_name = $config['user_name'];
-        $this->password = $config['password'];
-        $this->phone_number = $config['phone_number'];
-        $this->endpoint = 'https://RayganSMS.com/SendMessageWithPost.ashx';
-        
+        $this->user_name = $user_name;
+        $this->password = $password;
+        $this->phone_number = $phone_number;
+        $this->url_send_message = 'https://RayganSMS.com/SendMessageWithPost.ashx';
+        $this->url_send_auth_code = 'https://smspanel.Trez.ir/AutoSendCode.ashx';
+        $this->url_check_auth_code = 'https://smspanel.Trez.ir/CheckSendCode.ashx';
+
         $this->client = new HttpClient([
-            'timeout' => 5,
-            'connect_timeout' => 5,
+            'timeout' => 10,
+            'connect_timeout' => 10,
         ]);
     }
 
-    public function sendMessage($message_config)
+    /**
+     * @param string $reciver_number
+     * @param string $text_message
+     * @return mixed|\Psr\Http\Message\ResponseInterface
+     */
+    public function sendMessage($reciver_number, $text_message)
     {
-        $base = [
+        $params = [
             'UserName' => $this->user_name,
             'Password' => $this->password,
             'PhoneNumber' => $this->phone_number,
             'Smsclass' => '1',
+            'RecNumber' => $reciver_number,
+            'MessageBody' => $text_message,
         ];
 
+        $response = $this->client->request('POST', $this->url_send_message, ['form_params' => $params]);
+        $response = \json_decode((string)$response->getBody(), true);
+        return $response;
+    }
+
+    /**
+     * @param $reciver_number
+     * @param null|string $sender_texts
+     * @return mixed|\Psr\Http\Message\ResponseInterface
+     */
+    public function sendAuthCode($reciver_number, $sender_text = null)
+    {
         $params = [
-            'MessageBody'=> $message_config['message'],
-            'RecNumber'=> $message_config['recive_number']
+            'UserName' => $this->user_name,
+            'Password' => $this->password,
+            'Mobile'=> $reciver_number,
+            'Footer'=> $sender_text
         ];
 
-        $params = \array_merge($base, \array_filter($params));
-        $response = $this->client->request('POST', $this->endpoint, ['form_params' => $params]);
+        $response = $this->client->request('POST', $this->url_send_auth_code, ['form_params' => $params]);
+        $response = \json_decode((string)$response->getBody(), true);
+        return $response;
+    }
+
+    /**
+     * @param string $reciver_number
+     * @param string $reciver_code
+     * @return mixed|\Psr\Http\Message\ResponseInterface
+     */
+    public function checkAuthCode($reciver_number, $reciver_code)
+    {
+        $params = [
+            'UserName' => $this->user_name,
+            'Password' => $this->password,
+            'Mobile'=> $reciver_number,
+            'Code'=> $reciver_code,
+        ];
+
+        $response = $this->client->request('POST', $this->url_check_auth_code, ['form_params' => $params]);
         $response = \json_decode((string)$response->getBody(), true);
         return $response;
     }
