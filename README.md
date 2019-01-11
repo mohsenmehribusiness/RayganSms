@@ -12,7 +12,7 @@ RayganSms API for send text messages
 
 
 <div dir="rtl">
-این پکیج امکان ارسال اعلانات (notifications) با استفاده از <a href="https://github.com/farhadmirzapour/RayganSms" target="_blank">RayganSms API</a>  را فراهم می سازد.
+این پکیج امکان اتصال به در فریم ورک هایی که از composer و  استاندارد PSR-4 پشتیبانی می کنند )همانند Laravel,Yii,symfony( RayganSms API  را فراهم می سازد.
 
 ## محتوا
 
@@ -29,12 +29,8 @@ RayganSms API for send text messages
 </div>
 
 ```bash
-composer require trez/raygan-sms-notification-channel
+composer require trez/raygan-sms
 ```
-<div dir="rtl" align="justify">
-توجه داشته باشید سرویس <a href="https://github.com/farhadmirzapour/RayganSms" target="_blank">RayganSms API</a>  به همراه این پکیج بصورت اتوماتیک بر روی پروژه شما نصب می شود.
-    بنابراین چنانچه از قبل پکیج <a href="https://github.com/farhadmirzapour/RayganSms" target="_blank">RayganSms API</a> بر روی پروژه شما نصب و تنظیمات مربوطه را انجام داده اید ، اقدامات مرتبط با نصب به پایان رسیده، در غیر این صورت مطابق مستندات مربوطه این پکیج (تنظیمات username,password, ...)اقدام نمایید.
-</div>
 
 <div dir="rtl">
     
