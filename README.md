@@ -176,9 +176,12 @@ if($result){
    ///
 }
 ```
+
+<div dir="rtl">
+    
 ###  استفاده در سرویس Notification لاراول
 
-
+</div>
 <div dir="rtl">
     
 ## تولیدکننده
