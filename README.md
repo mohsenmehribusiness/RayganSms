@@ -193,9 +193,9 @@ if($result){
 ## تولیدکننده
 
 </div>
-<div dir="rtl">
+
 - [Farhad Mirzapour](https://github.com/farhadmirzapour)
-</div>
+
 <div dir="rtl">
     
 ## لایسنس
