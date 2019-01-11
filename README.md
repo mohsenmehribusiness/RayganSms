@@ -22,9 +22,9 @@ RayganSms API for send text messages
 - [Laravel](#Laravel)
     - [پیکره بندی در لاراول](#پیکره-بندی-در-لاراول)
     - [نحوه استفاده در لاراول](#نحوه-استفاده-در-لاراول)
+    - [استفاده-در-سرویس-Notification-لاراول](#استفاده در سرویس Notification لاراول)
 - [تولیدکننده](#تولیدکننده)
 - [لایسنس](#لایسنس)
-
 
 ## نصب  
 
@@ -67,7 +67,7 @@ $sms = new \Trez\RayganSms\Sms($user_name,$password,$phone_number);
 </div>
 
 ```php
-$sms->sendMessage('0936*******','Test Message');
+echo $sms->sendMessage('0936*******','Test Message');
 ```
 
 <div dir="rtl" >
@@ -86,7 +86,7 @@ $sms->sendMessage('0936*******','Test Message');
 </div>
 
 ```php
-$sms->sendAuthCode('0936*******','Welcome ...');
+echo $sms->sendAuthCode('0936*******','Welcome ...');
 ```
 <div dir="rtl" >
     
@@ -176,6 +176,8 @@ if($result){
    ///
 }
 ```
+###  استفاده در سرویس Notification لاراول
+
 
 <div dir="rtl">
     
