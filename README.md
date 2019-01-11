@@ -159,6 +159,25 @@ Trez\RayganSms\RayganSmsServiceProvider::class,
 </div>
 
 <div dir="rtl">
+    هم اکنون می توانید با استفاده از Facade این پکیج (RayganSms) به متدهای پکیج دسترسی نمایید :
+</div>
+
+ ```php
+echo  RayganSms::sendMessage('09214244241','salamsalam');
+    ...   
+    
+echo  RayganSms::sendAuthCode('09366386160','ارزون یاب');
+    ...
+    
+$result = RayganSms::checkAuthCode('09366386160','922387');
+if($result){
+    echo 'yesss';
+}else{
+    echo 'nooooooooo';
+}
+```
+
+<div dir="rtl">
     
 ## تولیدکننده
 
