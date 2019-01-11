@@ -118,13 +118,17 @@ if($result){
 
 </div>
 <div dir="rtl">
+بعد از نصب پکیج با استفاده از composer، فایل های config/services.php و .env را مطابق زیر ویرایش نمائید :
+</div>
+
+<div dir="rtl">
     
 ## تولیدکننده
 
 </div>
-
+<div dir="rtl">
 - [Farhad Mirzapour](https://github.com/farhadmirzapour)
-
+</div>
 <div dir="rtl">
     
 ## لایسنس
