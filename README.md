@@ -12,7 +12,7 @@ RayganSms API for send text messages
 
 
 <div dir="rtl">
-این پکیج امکان اتصال به در فریم ورک هایی که از composer و  استاندارد PSR-4 پشتیبانی می کنند )همانند Laravel,Yii,symfony( RayganSms API  را فراهم می سازد.
+این پکیج امکان اتصال به فریم ورک هایی که جهت نصب پکیج ها از composer استفاده نموده و از استاندارد  PSR-4 پشتیبانی می کنند )همانند Laravel,Yii,symfony( RayganSms API  را فراهم می سازد.
 
 ## محتوا
 
