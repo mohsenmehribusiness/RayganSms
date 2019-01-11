@@ -67,7 +67,7 @@ $sms = new \Trez\RayganSms\Sms($user_name,$password,$phone_number);
 </div>
 
 ```php
-$sms->sendAuthCode('0936*******','Test Message');
+$sms->sendMessage('0936*******','Test Message');
 ```
 
 <div dir="rtl" >
@@ -163,17 +163,17 @@ Trez\RayganSms\RayganSmsServiceProvider::class,
 </div>
 
  ```php
-echo  RayganSms::sendMessage('09214244241','salamsalam');
+echo  RayganSms::sendMessage('0936*******','Test Message');
     ...   
     
-echo  RayganSms::sendAuthCode('09366386160','ارزون یاب');
+echo  RayganSms::sendAuthCode('0936*******','Welcome ...');
     ...
     
-$result = RayganSms::checkAuthCode('09366386160','922387');
+$result = RayganSms::checkAuthCode('0936*******','922387');
 if($result){
-    echo 'yesss';
+    ///
 }else{
-    echo 'nooooooooo';
+   ///
 }
 ```
 
