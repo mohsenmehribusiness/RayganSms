@@ -185,7 +185,7 @@ if($result){
 </div>
 
 <div dir="rtl">
-    جهت استفاده از سیستم اعلانات Notefications  لاراول از پکیج <a href="https://github.com/farhadmirzapour/RaygansmsChannel" >raygan-sms-notification-channel</a>  را نصب و طبق مستندات مربوطه عمل نمائید.
+    جهت استفاده از سیستم اعلانات (<a href="https://laravel.com/docs/5.7/notifications" >Notefications</a>)  لاراول،  پکیج <a href="https://github.com/farhadmirzapour/RaygansmsChannel" >raygan-sms-notification-channel</a>  را نصب و طبق مستندات مربوطه عمل نمائید.
 </div>
 
 <div dir="rtl">
