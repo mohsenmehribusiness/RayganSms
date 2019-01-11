@@ -17,7 +17,7 @@ RayganSms API for send text messages
 ## محتوا
 
 - [نصب و پیکره بندی](#نصب-و-پیکره-بندی)
-- [استفاده](#نحوه-استفاده)
+- [نحوه استفاده](#نحوه-استفاده)
 - [متدها](#متدها)
 - [Laravel](#Laravel)
     - [پیکره بندی در لاراول](#پیکره-بندی-در-لاراول)
@@ -180,9 +180,14 @@ if($result){
 
 <div dir="rtl">
     
-###  استفاده در سرویس Notification لاراول
+###  استفاده در سیستم اعلانات لاراول
 
 </div>
+
+<div dir="rtl">
+    جهت استفاده از سیستم اعلانات Notefications  لاراول از پکیج <a href="https://github.com/farhadmirzapour/RaygansmsChannel" >raygan-sms-notification-channel</a>  را نصب و طبق مستندات مربوطه عمل نمائید.
+</div>
+
 <div dir="rtl">
     
 ## تولیدکننده
