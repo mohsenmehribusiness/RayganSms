@@ -20,7 +20,7 @@ RayganSms API for send text messages
 - [استفاده](#استفاده)
 - [متدها](#متدها)
 - [Laravel](#Laravel)
-    - [Setting up the SmscRu service](#setting-up-the-SmscRu-service)
+    - [پیکره بندی](#پیکره-بندی)
 - [تولیدکننده](#تولیدکننده)
 - [لایسنس](#لایسنس)
 
