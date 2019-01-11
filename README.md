@@ -118,8 +118,28 @@ if($result){
 
 </div>
 <div dir="rtl">
-بعد از نصب پکیج با استفاده از composer، فایل های config/services.php و .env را مطابق زیر ویرایش نمائید :
+بعد از نصب پکیج با استفاده از <a href="http://farhadnote.ir/articles/2017/10/29/composer.html" target="_blank" >composer</a>، فایل های config/services.php و env. را مطابق زیر ویرایش نمائید :
 </div>
+
+```php
+// config/services.php
+...
+RAYGANSMS_USERNAME=*******
+RAYGANSMS_PASSWORD=*******
+RAYGANSMS_PHONE_NUMBER=*******
+...
+```
+
+```php
+// config/services.php
+...
+    'raygansms' => [
+        'user_name' => env('RAYGANSMS_USERNAME'),
+        'password' => env('RAYGANSMS_PASSWORD'),
+        'phone_number' => env('RAYGANSMS_PHONE_NUMBER'),
+    ],
+...
+```
 
 <div dir="rtl">
     
