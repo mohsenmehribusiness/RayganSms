@@ -118,7 +118,7 @@ if($result){
 
 </div>
 <div dir="rtl">
-بعد از نصب پکیج با استفاده از <a href="http://farhadnote.ir/articles/2017/10/29/composer.html" target="_blank" >composer</a>، فایل های config/services.php و env. را مطابق زیر ویرایش نمائید :
+بعد از نصب پکیج ، فایل های config/services.php و env. را مطابق زیر ویرایش نمائید :
 </div>
 
 ```php
