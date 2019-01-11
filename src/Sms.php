@@ -15,7 +15,7 @@ class Sms
     /** @var string */
     protected $url_send_auth_code;
 
-	    /** @var string */
+        /** @var string */
     protected $url_check_auth_code;
 	
     /** @var string */
