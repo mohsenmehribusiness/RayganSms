@@ -12,7 +12,7 @@ RayganSms API for send text messages
 
 
 <div dir="rtl" align="justify">
-این پکیج امکان اتصال RayganSms API به فریم ورک هایی که جهت نصب پکیج ها از <a href="http://farhadnote.ir/articles/2017/10/29/composer.html" target="_blank" >composer</a> استفاده نموده و از استاندارد  <a href="http://farhadnote.ir/articles/2017/11/09/composer-autoloading.html#%D8%B1%D9%88%D8%B4-psr-4-based-autoloading" target=_blank" >PSR-4</a> پشتیبانی می کنند همانند (Laravel,Yii,symfony)   را فراهم می سازد.
+این پکیج امکان اتصال RayganSms API به فریم ورک هایی که جهت نصب پکیج ها از <a href="http://farhadnote.ir/articles/2017/10/29/composer.html" target="_blank" >composer</a> استفاده نموده و از استاندارد  <a href="http://farhadnote.ir/articles/2017/11/09/composer-autoloading.html#%D8%B1%D9%88%D8%B4-psr-4-based-autoloading" target=_blank" >PSR-4</a> جهت autoload  نمودن کلاس ها استفاده می نمایند همانند (Laravel,Yii,symfony)   را فراهم می سازد.
 
 ## محتوا
 
