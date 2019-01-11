@@ -69,7 +69,7 @@ $sms->sendAuthCode('0936*******','Test Message');
 
 <div dir="rtl" >
     
-#### 2- متد ارسال کد 2FA )Two Factor Authentication( 
+#### 2- متد ارسال کد 2FA (Two Factor Authentication) 
 
 </div>
 
