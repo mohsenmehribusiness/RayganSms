@@ -36,27 +36,14 @@ composer require trez/raygan-sms
     
 ## استفاده
 
-با استفاده از متد `()via` این کانال را به notefication  خود اضافه نموده و متد toRayganSms را مطابق زیر جهت ارسال اعلان اضافه می نماییم:
+مطابق کد زیر تنظیمات شناسه، رمزعبور و شماره تماس ارسال کننده را وارد نمائید:
 </div>
 
 ```php
-use Illuminate\Notifications\Notification;
-use NotificationChannels\RayganSms\RaygansmsChannel;
-use NotificationChannels\RayganSms\RayganSmsMessage;
-
-class AccountApproved extends Notification
-{
-    public function via($notifiable)
-    {
-        return [RayganSmsChannel::class];
-    }
-
-    public function toRayganSms($notifiable)
-    {
-        return (new RayganSmsMessage())
-            ->content("your message to send ...");
-    }
-}
+            $user_name = '*******';
+            $password = '*******';
+            $phone_number = '*******';;
+            $sms = new \Trez\RayganSms\Sms($user_name,$password,$phone_number);
 ```
 
 <div dir="rtl">
