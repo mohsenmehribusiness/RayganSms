@@ -76,6 +76,9 @@ $sms->sendAuthCode('0936*******','Test Message');
 `sendAuthCode($reciver_number, $sender_text)`
 
 <div dir="rtl" >
+نکته : پارامتر $sender_text اختیاری می باشد.
+</div>
+<div dir="rtl" >
  مثال :
 </div>
 
@@ -94,7 +97,7 @@ $sms->sendAuthCode('0936*******','Welcome ...');
 </div>
 
 ```php
-$result = $sms->checkAuthCode('09366386160','922387');
+$result = $sms->checkAuthCode('0936*******','922387');
 if($result){
     ///
 }else{
