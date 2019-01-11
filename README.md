@@ -48,7 +48,7 @@ $sms = new \Trez\RayganSms\Sms($user_name,$password,$phone_number);
     
 ### متدها
 
-####  متد ارسال پیامک
+#### 1- متد ارسال پیامک
 `sendMessage($reciver_number, $text_message)`
 
 <div dir="rtl" >
@@ -56,16 +56,35 @@ $sms = new \Trez\RayganSms\Sms($user_name,$password,$phone_number);
 </div>
 
 ```php
-$sms->sendAuthCode('09366386160','Test Message');
+$sms->sendAuthCode('0936*******','Test Message');
 ```
 
-#### (Two Factor Authentication) 2FA متد ارسال کد
-`sendMessage($reciver_number, $text_message)`: متد ارسال پیامک
+#### 2- (Two Factor Authentication) 2FA متد ارسال کد
+`sendAuthCode($reciver_number, $sender_text)`
+
+<div dir="rtl" >
+ مثال :
+</div>
 
 ```php
-$sms->sendMessage('0936*******','Test Message');
+$sms->sendAuthCode('0936*******','Welcome ...');
 ```
 
+#### 3-  ارسال شده توسط کاربر (Two Factor Authentication) 2FA بررسی صحت کد
+`sendAuthCode($reciver_number, $sender_text)`
+
+<div dir="rtl" >
+ مثال :
+</div>
+
+```php
+$result = $sms->checkAuthCode('09366386160','922387');
+if($result){
+    ///
+}else{
+    ///
+}
+```
 
 ## تولیدکننده
 
