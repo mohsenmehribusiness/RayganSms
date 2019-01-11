@@ -9,3 +9,97 @@ RayganSms API for send text messages
 [![Code Intelligence Status](https://scrutinizer-ci.com/g/farhadmirzapour/RayganSms/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
 [![Quality Score](https://img.shields.io/scrutinizer/g/farhadmirzapour/RayganSms.svg?style=flat-square)](https://scrutinizer-ci.com/g/farhadmirzapour/RayganSms)
 [![Total Downloads](https://img.shields.io/packagist/dt/trez/raygan-sms.svg?style=flat-square)](https://packagist.org/packages/trez/raygan-sms)
+
+
+<div dir="rtl">
+این پکیج امکان ارسال اعلانات (notifications) با استفاده از <a href="https://github.com/farhadmirzapour/RayganSms" target="_blank">RayganSms API</a>  را فراهم می سازد.
+
+## محتوا
+
+- [نصب](#نصب)
+- [استفاده](#استفاده)
+- [متدها](#متدها)
+- [تولیدکننده](#تولیدکننده)
+- [لایسنس](#لایسنس)
+
+
+## نصب  
+
+با استفاده از composer  قادر به نصب این سرویس می باشید:
+</div>
+
+```bash
+composer require trez/raygan-sms-notification-channel
+```
+<div dir="rtl" align="justify">
+توجه داشته باشید سرویس <a href="https://github.com/farhadmirzapour/RayganSms" target="_blank">RayganSms API</a>  به همراه این پکیج بصورت اتوماتیک بر روی پروژه شما نصب می شود.
+    بنابراین چنانچه از قبل پکیج <a href="https://github.com/farhadmirzapour/RayganSms" target="_blank">RayganSms API</a> بر روی پروژه شما نصب و تنظیمات مربوطه را انجام داده اید ، اقدامات مرتبط با نصب به پایان رسیده، در غیر این صورت مطابق مستندات مربوطه این پکیج (تنظیمات username,password, ...)اقدام نمایید.
+</div>
+
+<div dir="rtl">
+    
+## استفاده
+
+با استفاده از متد `()via` این کانال را به notefication  خود اضافه نموده و متد toRayganSms را مطابق زیر جهت ارسال اعلان اضافه می نماییم:
+</div>
+
+```php
+use Illuminate\Notifications\Notification;
+use NotificationChannels\RayganSms\RaygansmsChannel;
+use NotificationChannels\RayganSms\RayganSmsMessage;
+
+class AccountApproved extends Notification
+{
+    public function via($notifiable)
+    {
+        return [RayganSmsChannel::class];
+    }
+
+    public function toRayganSms($notifiable)
+    {
+        return (new RayganSmsMessage())
+            ->content("your message to send ...");
+    }
+}
+```
+
+<div dir="rtl">
+ همچنین چنانچه جهت اطمینان از ارسال پیام به شماره کاربر،  از مدل که معمولا مدل User می باشد جهت استخراج شماره تماس کاربر استفاده می نمایید، ابتدا trait زیر را به مدل خود اضافه نمائید :   
+</div>
+
+```php
+    use Notifiable;
+```
+
+<div dir="rtl">
+ سپس متد زیر را به مدل اضافه نمائید : 
+</div>
+
+```php
+    public function routeNotificationForRayganSms()
+    {
+        return $this->phone_number;
+    }
+``` 
+
+
+<div dir="rtl">
+    توجه داشته باشید در این مدل ستون حاوی شماره تماس کاربر phone_number  می باشد. در غیر اینصورت this->phone_number$ را مطابق با نام ستون حاوی شماره تماس کاربر تغییر دهید.
+</div>
+<div dir="rtl">
+    
+### متدها
+
+`()content`: متن ارسالی به دریافت کننده.
+
+
+## تولیدکننده
+
+- [Farhad Mirzapour](https://github.com/farhadmirzapour)
+
+## لایسنس
+
+لایسنس این پکیج (MIT) می باشد . جهت اطلاعات در مورد این لایسنس به [License File](LICENSE) مراجعه نمایید. 
+
+</div>
+
