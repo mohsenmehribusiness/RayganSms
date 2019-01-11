@@ -11,7 +11,7 @@ RayganSms API for send text messages
 [![Total Downloads](https://img.shields.io/packagist/dt/trez/raygan-sms.svg?style=flat-square)](https://packagist.org/packages/trez/raygan-sms)
 
 
-<div dir="rtl">
+<div dir="rtl" align="justify">
 این پکیج امکان اتصال RayganSms API به فریم ورک هایی که جهت نصب پکیج ها از composer استفاده نموده و از استاندارد  PSR-4 پشتیبانی می کنند همانند (Laravel,Yii,symfony)   را فراهم می سازد.
 
 ## محتوا
