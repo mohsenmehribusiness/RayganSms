@@ -54,6 +54,9 @@ $sms = new \Trez\RayganSms\Sms($user_name,$password,$phone_number);
 <div dir="rtl">
     
 #### 1- متد ارسال پیامک
+
+</div>
+
 `sendMessage($reciver_number, $text_message)`
 
 <div dir="rtl" >
