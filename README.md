@@ -107,17 +107,30 @@ if($result){
 }
 ```
 
+<div dir="rtl">
+    
 ## Laravel
 
-### پیکره-بندی
+</div>
+<div dir="rtl">
+    
+### پیکره بندی
 
-
+</div>
+<div dir="rtl">
+    
 ## تولیدکننده
+
+</div>
 
 - [Farhad Mirzapour](https://github.com/farhadmirzapour)
 
+<div dir="rtl">
+    
 ## لایسنس
 
+</div>
+<div dir="rtl">
 لایسنس این پکیج (MIT) می باشد . جهت اطلاعات در مورد این لایسنس به [License File](LICENSE) مراجعه نمایید. 
 
 </div>
