@@ -142,7 +142,7 @@ RAYGANSMS_PHONE_NUMBER=*******
 ...
 ```
 <div dir="rtl">
-    چنانچه از نسخه های پایین تر از 5.5 استفاده می نمائید serviceProvider  زیر را اضافه نمائید:
+    چنانچه از نسخه های پایین تر از 5.5 استفاده می نمائید serviceProvider  زیر  را به فایل config/app.php اضافه نمائید:
  </div>  
  
  ```php
