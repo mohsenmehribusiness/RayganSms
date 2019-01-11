@@ -27,9 +27,6 @@ class Sms
     /** @var string */
     protected $phone_number;
 
-    /** @var string */
-    protected $sender;
-
     /**
      * Sms constructor.
      *
