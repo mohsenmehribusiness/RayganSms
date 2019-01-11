@@ -40,40 +40,15 @@ composer require trez/raygan-sms
 </div>
 
 ```php
-            $user_name = '*******';
-            $password = '*******';
-            $phone_number = '*******';;
-            $sms = new \Trez\RayganSms\Sms($user_name,$password,$phone_number);
+$user_name = '*******';
+$password = '*******';
+$phone_number = '*******';;
+$sms = new \Trez\RayganSms\Sms($user_name,$password,$phone_number);
 ```
-
-<div dir="rtl">
- همچنین چنانچه جهت اطمینان از ارسال پیام به شماره کاربر،  از مدل که معمولا مدل User می باشد جهت استخراج شماره تماس کاربر استفاده می نمایید، ابتدا trait زیر را به مدل خود اضافه نمائید :   
-</div>
-
-```php
-    use Notifiable;
-```
-
-<div dir="rtl">
- سپس متد زیر را به مدل اضافه نمائید : 
-</div>
-
-```php
-    public function routeNotificationForRayganSms()
-    {
-        return $this->phone_number;
-    }
-``` 
-
-
-<div dir="rtl">
-    توجه داشته باشید در این مدل ستون حاوی شماره تماس کاربر phone_number  می باشد. در غیر اینصورت this->phone_number$ را مطابق با نام ستون حاوی شماره تماس کاربر تغییر دهید.
-</div>
-<div dir="rtl">
     
 ### متدها
 
-`()content`: متن ارسالی به دریافت کننده.
+`($reciver_number, $text_message)sendMessage`: متد ارسال پیامک
 
 
 ## تولیدکننده
