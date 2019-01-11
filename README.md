@@ -122,7 +122,7 @@ if($result){
 </div>
 
 ```php
-// config/services.php
+// .env
 ...
 RAYGANSMS_USERNAME=*******
 RAYGANSMS_PASSWORD=*******
