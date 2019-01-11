@@ -45,9 +45,14 @@ $password = '*******';
 $phone_number = '*******';;
 $sms = new \Trez\RayganSms\Sms($user_name,$password,$phone_number);
 ```
+<div dir="rtl">
     
 ### متدها
 
+</div>
+
+<div dir="rtl">
+    
 #### 1- متد ارسال پیامک
 `sendMessage($reciver_number, $text_message)`
 
@@ -59,7 +64,12 @@ $sms = new \Trez\RayganSms\Sms($user_name,$password,$phone_number);
 $sms->sendAuthCode('0936*******','Test Message');
 ```
 
+<div dir="rtl" >
+    
 #### 2- (Two Factor Authentication) 2FA متد ارسال کد
+
+</div>
+
 `sendAuthCode($reciver_number, $sender_text)`
 
 <div dir="rtl" >
