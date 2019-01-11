@@ -29,6 +29,7 @@ class Sms
 
     /**
      * Sms constructor.
+     *
      * @param string $user_name
      * @param string $password
      * @param string $phone_number
@@ -43,7 +44,7 @@ class Sms
         $this->url_check_auth_code = 'https://smspanel.Trez.ir/CheckSendCode.ashx';
 
         $this->client = new HttpClient([
-            'timeout' => 10,
+            'timeout'         => 10,
             'connect_timeout' => 10,
         ]);
     }
@@ -51,27 +52,30 @@ class Sms
     /**
      * @param string $reciver_number
      * @param string $text_message
+     *
      * @return mixed|\Psr\Http\Message\ResponseInterface
      */
     public function sendMessage($reciver_number, $text_message)
     {
         $params = [
-            'UserName' => $this->user_name,
-            'Password' => $this->password,
+            'UserName'    => $this->user_name,
+            'Password'    => $this->password,
             'PhoneNumber' => $this->phone_number,
-            'Smsclass' => '1',
-            'RecNumber' => $reciver_number,
+            'Smsclass'    => '1',
+            'RecNumber'   => $reciver_number,
             'MessageBody' => $text_message,
         ];
 
         $response = $this->client->request('POST', $this->url_send_message, ['form_params' => $params]);
-        $response = \json_decode((string)$response->getBody(), true);
+        $response = \json_decode((string) $response->getBody(), true);
+
         return $response;
     }
 
     /**
      * @param $reciver_number
      * @param null|string $sender_texts
+     *
      * @return mixed|\Psr\Http\Message\ResponseInterface
      */
     public function sendAuthCode($reciver_number, $sender_text = null)
@@ -79,18 +83,20 @@ class Sms
         $params = [
             'UserName' => $this->user_name,
             'Password' => $this->password,
-            'Mobile'=> $reciver_number,
-            'Footer'=> $sender_text
+            'Mobile'   => $reciver_number,
+            'Footer'   => $sender_text,
         ];
 
         $response = $this->client->request('POST', $this->url_send_auth_code, ['form_params' => $params]);
-        $response = \json_decode((string)$response->getBody(), true);
+        $response = \json_decode((string) $response->getBody(), true);
+
         return $response;
     }
 
     /**
      * @param string $reciver_number
      * @param string $reciver_code
+     *
      * @return mixed|\Psr\Http\Message\ResponseInterface
      */
     public function checkAuthCode($reciver_number, $reciver_code)
@@ -98,12 +104,13 @@ class Sms
         $params = [
             'UserName' => $this->user_name,
             'Password' => $this->password,
-            'Mobile'=> $reciver_number,
-            'Code'=> $reciver_code,
+            'Mobile'   => $reciver_number,
+            'Code'     => $reciver_code,
         ];
 
         $response = $this->client->request('POST', $this->url_check_auth_code, ['form_params' => $params]);
-        $response = \json_decode((string)$response->getBody(), true);
+        $response = \json_decode((string) $response->getBody(), true);
+
         return $response;
     }
 }
