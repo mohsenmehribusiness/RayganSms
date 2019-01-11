@@ -48,14 +48,18 @@ $sms = new \Trez\RayganSms\Sms($user_name,$password,$phone_number);
     
 ### متدها
 
-##  متد ارسال پیامک
-`sendMessage($reciver_number, $text_message)`: متد ارسال پیامک
+####  متد ارسال پیامک
+`sendMessage($reciver_number, $text_message)`
+
+<div dir="rtl" >
+ مثال :
+</div>
 
 ```php
 $sms->sendAuthCode('09366386160','Test Message');
 ```
 
-##  متد ارسال کد 2FA (Two Factor Autontision)
+#### (Two Factor Authentication) 2FA متد ارسال کد
 `sendMessage($reciver_number, $text_message)`: متد ارسال پیامک
 
 ```php
