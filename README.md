@@ -84,9 +84,10 @@ $sms->sendAuthCode('0936*******','Welcome ...');
 ```
 <div dir="rtl" >
     
-#### 3-  ارسال شده توسط کاربر (Two Factor Authentication) 2FA بررسی صحت کد
-`sendAuthCode($reciver_number, $sender_text)`
+#### 3-  بررسی صحت کد دریافتی احراز هویت ارسال شده توسط کاربر
 </div>
+
+`checkAuthCode($reciver_number, $reciver_code)`
 
 <div dir="rtl" >
  مثال :
