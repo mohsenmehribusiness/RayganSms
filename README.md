@@ -140,7 +140,17 @@ RAYGANSMS_PHONE_NUMBER=*******
     ],
 ...
 ```
-
+<div dir="rtl">
+    چنانچه از نسخه مای ماقبل 5.5 استفاده می نمائید serviceProvider  زیر را اضافه نمائید:
+ </div>  
+ 
+ ```php
+// config/app.php
+...
+Trez\RayganSms\RayganSmsServiceProvider::class,
+...
+```
+ 
 <div dir="rtl">
     
 ## تولیدکننده
