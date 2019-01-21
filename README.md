@@ -186,15 +186,19 @@ Trez\RayganSms\RayganSmsServiceProvider::class,
 echo  RayganSms::sendMessage('0936*******','Test Message');
     ...   
     
-echo  RayganSms::sendAuthCode('0936*******','Welcome ...');
+echo  RayganSms::sendAutoAuthCode('0936*******','Welcome ...');
     ...
     
-$result = RayganSms::checkAuthCode('0936*******','922387');
+$result = RayganSms::checkAutoAuthCode('0936*******','922387');
 if($result){
     ///
 }else{
    ///
 }
+    ...   
+    
+echo  RayganSms::sendAuthCode('0936*******','hello, your auth: 123456');
+    ...
 ```
 
 <div dir="rtl">
