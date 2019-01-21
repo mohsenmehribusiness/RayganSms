@@ -19,6 +19,9 @@ class Sms
     protected $url_check_auth_code;
 
     /** @var string */
+    protected $url_send_code;
+
+    /** @var string */
     protected $user_name;
 
     /** @var string */
@@ -42,6 +45,7 @@ class Sms
         $this->url_send_message = 'https://RayganSMS.com/SendMessageWithPost.ashx';
         $this->url_send_auth_code = 'https://smspanel.Trez.ir/AutoSendCode.ashx';
         $this->url_check_auth_code = 'https://smspanel.Trez.ir/CheckSendCode.ashx';
+        $this->url_send_code = 'https://smspanel.Trez.ir/SendMessageWithCode.ashx';
 
         $this->client = new HttpClient([
             'timeout'         => 10,
@@ -53,7 +57,7 @@ class Sms
      * @param string $reciver_number
      * @param string $text_message
      *
-     * @return mixed|\Psr\Http\Message\ResponseInterface
+     * @return string
      */
     public function sendMessage($reciver_number, $text_message)
     {
@@ -76,9 +80,9 @@ class Sms
      * @param $reciver_number
      * @param null|string $sender_texts
      *
-     * @return mixed|\Psr\Http\Message\ResponseInterface
+     * @return string
      */
-    public function sendAuthCode($reciver_number, $sender_text = null)
+    public function sendAutoAuthCode($reciver_number, $sender_text = null)
     {
         $params = [
             'UserName' => $this->user_name,
@@ -97,9 +101,9 @@ class Sms
      * @param string $reciver_number
      * @param string $reciver_code
      *
-     * @return mixed|\Psr\Http\Message\ResponseInterface
+     * @return string
      */
-    public function checkAuthCode($reciver_number, $reciver_code)
+    public function checkAutoAuthCode($reciver_number, $reciver_code)
     {
         $params = [
             'UserName' => $this->user_name,
@@ -109,6 +113,25 @@ class Sms
         ];
 
         $response = $this->client->request('POST', $this->url_check_auth_code, ['form_params' => $params]);
+        $response = \json_decode((string) $response->getBody(), true);
+
+        return $response;
+    }
+
+    /**
+     * @param $reciver_number
+     * @param $text_message
+     * @return string
+     */
+    public function sendAuthCode($reciver_number, $text_message)
+    {
+        $params = [
+            'UserName' => $this->user_name,
+            'Password' => $this->password,
+            'Mobile'   => $reciver_number,
+            'Message'  => $text_message,
+        ];
+        $response = $this->client->request('GET', $this->url_send_code, ['query' => $params]);
         $response = \json_decode((string) $response->getBody(), true);
 
         return $response;
