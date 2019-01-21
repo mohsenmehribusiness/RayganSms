@@ -77,7 +77,7 @@ echo $sms->sendMessage('0936*******','Test Message');
 
 </div>
 
-`sendAuthCode($reciver_number, $sender_text)`
+`sendAutoAuthCode($reciver_number, $sender_text)`
 
 <div dir="rtl" >
 نکته : پارامتر sender_text$ اختیاری می باشد.
@@ -93,6 +93,22 @@ echo $sms->sendAuthCode('0936*******','Welcome ...');
     
 #### 3-  بررسی صحت کد دریافتی احراز هویت ارسال شده توسط کاربر
 </div>
+
+`checkAuthCode($reciver_number, $reciver_code)`
+
+<div dir="rtl" >
+ مثال :
+</div>
+
+```php
+$result = $sms->checkAuthCode('0936*******','922387');
+if($result){
+    ///
+}else{
+    ///
+}
+```
+#### 4- متد ارسال کد دلخواه احراز هویت 2FA یا  (Two Factor Authentication)</div>
 
 `checkAuthCode($reciver_number, $reciver_code)`
 
