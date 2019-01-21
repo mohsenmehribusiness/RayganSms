@@ -168,7 +168,8 @@ RAYGANSMS_PHONE_NUMBER=*******
 ...
 Trez\RayganSms\RayganSmsServiceProvider::class,
 ...
-'RayganSms' => \Trez\RayganSms\Facades\RayganSms::class
+'RayganSms' => Trez\RayganSms\Facades\RayganSms::class
+...
 ```
 
 <div dir="rtl">
