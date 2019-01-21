@@ -87,42 +87,43 @@ echo $sms->sendMessage('0936*******','Test Message');
 </div>
 
 ```php
-echo $sms->sendAuthCode('0936*******','Welcome ...');
+echo $sms->sendAutoAuthCode('0936*******','Welcome ...');
 ```
+
 <div dir="rtl" >
     
 #### 3-  بررسی صحت کد دریافتی احراز هویت ارسال شده توسط کاربر
 </div>
 
-`checkAuthCode($reciver_number, $reciver_code)`
+`checkAutoAuthCode($reciver_number, $reciver_code)`
 
 <div dir="rtl" >
  مثال :
 </div>
 
 ```php
-$result = $sms->checkAuthCode('0936*******','922387');
+$result = $sms->checkAutoAuthCode('0936*******','922387');
 if($result){
     ///
 }else{
     ///
 }
 ```
+
+<div dir="rtl" >
+    
 #### 4- متد ارسال کد دلخواه احراز هویت 2FA یا  (Two Factor Authentication)</div>
 
-`checkAuthCode($reciver_number, $reciver_code)`
+</div>
+
+`sendAuthCode($reciver_number, $text_message)`
 
 <div dir="rtl" >
  مثال :
 </div>
 
 ```php
-$result = $sms->checkAuthCode('0936*******','922387');
-if($result){
-    ///
-}else{
-    ///
-}
+$result = $sms->sendAuthCode('0936*******','hello, your auth: 123456');
 ```
 
 <div dir="rtl">
@@ -159,7 +160,7 @@ RAYGANSMS_PHONE_NUMBER=*******
 ...
 ```
 <div dir="rtl">
-    چنانچه از نسخه های پایین تر از 5.5 استفاده می نمائید serviceProvider  زیر  را به فایل config/app.php اضافه نمائید:
+    چنانچه از نسخه های پایین تر از 5.5 استفاده می نمائید ServiceProvider و aliase  زیر  را به فایل config/app.php اضافه نمائید:
  </div>  
  
  ```php
@@ -167,6 +168,7 @@ RAYGANSMS_PHONE_NUMBER=*******
 ...
 Trez\RayganSms\RayganSmsServiceProvider::class,
 ...
+'RayganSms' => \Trez\RayganSms\Facades\RayganSms::class
 ```
 
 <div dir="rtl">
