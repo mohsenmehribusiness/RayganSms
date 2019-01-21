@@ -121,6 +121,7 @@ class Sms
     /**
      * @param $reciver_number
      * @param $text_message
+     *
      * @return string
      */
     public function sendAuthCode($reciver_number, $text_message)
