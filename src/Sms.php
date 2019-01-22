@@ -13,13 +13,13 @@ class Sms
     protected $url_send_message;
 
     /** @var string */
-    protected $url_send_auth_code;
+    protected $url_send_auto_auth_code;
 
     /** @var string */
     protected $url_check_auth_code;
 
     /** @var string */
-    protected $url_send_code;
+    protected $url_send_auth_code;
 
     /** @var string */
     protected $user_name;
@@ -43,9 +43,9 @@ class Sms
         $this->password = $password;
         $this->phone_number = $phone_number;
         $this->url_send_message = 'https://RayganSMS.com/SendMessageWithPost.ashx';
-        $this->url_send_auth_code = 'https://smspanel.Trez.ir/AutoSendCode.ashx';
+        $this->url_send_auto_auth_code = 'https://smspanel.Trez.ir/AutoSendCode.ashx';
         $this->url_check_auth_code = 'https://smspanel.Trez.ir/CheckSendCode.ashx';
-        $this->url_send_code = 'https://smspanel.Trez.ir/SendMessageWithCode.ashx';
+        $this->url_send_auth_code = 'https://smspanel.Trez.ir/SendMessageWithCode.ashx';
 
         $this->client = new HttpClient([
             'timeout'         => 10,
@@ -78,22 +78,33 @@ class Sms
 
     /**
      * @param $reciver_number
-     * @param null|string $sender_texts
+     * @param null $text_message
+     * @param bool $autoGenerateCode
      *
      * @return string
      */
-    public function sendAutoAuthCode($reciver_number, $sender_text = null)
+    public function sendAuthCode($reciver_number, $text_message = null, $autoGenerateCode = true)
     {
-        $params = [
-            'UserName' => $this->user_name,
-            'Password' => $this->password,
-            'Mobile'   => $reciver_number,
-            'Footer'   => $sender_text,
-        ];
+        if ($autoGenerateCode) {
+            $params = [
+                'UserName' => $this->user_name,
+                'Password' => $this->password,
+                'Mobile'   => $reciver_number,
+                'Footer'   => $text_message,
+            ];
+            $response = $this->client->request('POST', $this->url_send_auto_auth_code, ['form_params' => $params]);
+        } else {
+            $params = [
+                'UserName' => $this->user_name,
+                'Password' => $this->password,
+                'Mobile'   => $reciver_number,
+                'Message'  => $text_message,
+            ];
 
-        $response = $this->client->request('POST', $this->url_send_auth_code, ['form_params' => $params]);
+            $response = $this->client->request('GET', $this->url_send_auth_code, ['query' => $params]);
+        }
+
         $response = \json_decode((string) $response->getBody(), true);
-
         return $response;
     }
 
@@ -103,7 +114,7 @@ class Sms
      *
      * @return string
      */
-    public function checkAutoAuthCode($reciver_number, $reciver_code)
+    public function checkAuthCode($reciver_number, $reciver_code)
     {
         $params = [
             'UserName' => $this->user_name,
@@ -113,26 +124,6 @@ class Sms
         ];
 
         $response = $this->client->request('POST', $this->url_check_auth_code, ['form_params' => $params]);
-        $response = \json_decode((string) $response->getBody(), true);
-
-        return $response;
-    }
-
-    /**
-     * @param $reciver_number
-     * @param $text_message
-     *
-     * @return string
-     */
-    public function sendAuthCode($reciver_number, $text_message)
-    {
-        $params = [
-            'UserName' => $this->user_name,
-            'Password' => $this->password,
-            'Mobile'   => $reciver_number,
-            'Message'  => $text_message,
-        ];
-        $response = $this->client->request('GET', $this->url_send_code, ['query' => $params]);
         $response = \json_decode((string) $response->getBody(), true);
 
         return $response;

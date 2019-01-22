@@ -77,17 +77,21 @@ echo $sms->sendMessage('0936*******','Test Message');
 
 </div>
 
-`sendAutoAuthCode($reciver_number, $sender_text)`
+`sendAuthCode($reciver_number, $text_message = null, $autoGenerateCode = true)`
 
 <div dir="rtl" >
-نکته : پارامتر sender_text$ اختیاری می باشد.
+نکته : پارامتر autoGenerateCode$ اختیاری می باشد.
 </div>
 <div dir="rtl" >
  مثال :
 </div>
 
 ```php
-echo $sms->sendAutoAuthCode('0936*******','Welcome ...');
+echo $sms->sendAuthCode('0936*******');
+...
+echo $sms->sendAuthCode('0936*******', 'Send From ...');
+...
+echo $sms->sendAuthCode('0936*******', 'Your Auth Code: 12346', false);
 ```
 
 <div dir="rtl" >
@@ -95,35 +99,19 @@ echo $sms->sendAutoAuthCode('0936*******','Welcome ...');
 #### 3-  بررسی صحت کد دریافتی احراز هویت ارسال شده توسط کاربر
 </div>
 
-`checkAutoAuthCode($reciver_number, $reciver_code)`
+`checkAuthCode($reciver_number, $reciver_code)`
 
 <div dir="rtl" >
  مثال :
 </div>
 
 ```php
-$result = $sms->checkAutoAuthCode('0936*******','922387');
+$result = $sms->checkAuthCode('0936*******','922387');
 if($result){
     ///
 }else{
     ///
 }
-```
-
-<div dir="rtl" >
-    
-#### 4- متد ارسال کد دلخواه احراز هویت 2FA یا  (Two Factor Authentication)</div>
-
-</div>
-
-`sendAuthCode($reciver_number, $text_message)`
-
-<div dir="rtl" >
- مثال :
-</div>
-
-```php
-$result = $sms->sendAuthCode('0936*******','hello, your auth: 123456');
 ```
 
 <div dir="rtl">
@@ -186,10 +174,10 @@ Trez\RayganSms\RayganSmsServiceProvider::class,
 echo  RayganSms::sendMessage('0936*******','Test Message');
     ...   
     
-echo  RayganSms::sendAutoAuthCode('0936*******','Welcome ...');
+echo  RayganSms::sendAuthCode('0936*******','Welcome ...');
     ...
     
-$result = RayganSms::checkAutoAuthCode('0936*******','922387');
+$result = RayganSms::checkAuthCode('0936*******','922387');
 if($result){
     ///
 }else{
@@ -197,7 +185,7 @@ if($result){
 }
     ...   
     
-echo  RayganSms::sendAuthCode('0936*******','hello, your auth: 123456');
+echo  RayganSms::sendAuthCode('0936*******', 'Your Auth Code: 123456', false);
     ...
 ```
 
