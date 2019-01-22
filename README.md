@@ -80,7 +80,7 @@ echo $sms->sendMessage('0936*******','Test Message');
 `sendAuthCode($reciver_number, $text_message = null, $autoGenerateCode = true)`
 
 <div dir="rtl" >
-نکته : اگر مقدار پارامتر autoGenerateCode$ برابر true باشد سامانه بطوراتوماتیک یک کد فعال سازی به کاربر ارسال می کند و چنانچه برابر با false  باشد متن حاوی کد دلخواه ارسال می گردد..
+نکته : اگر مقدار پارامتر autoGenerateCode$ برابر true باشد سامانه بطوراتوماتیک یک کد فعال سازی به کاربر ارسال می کند و چنانچه برابر با false  باشد متن حاوی کد دلخواه ارسال می گردد.
 </div>
 <div dir="rtl" >
  مثال :
