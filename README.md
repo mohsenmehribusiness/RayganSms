@@ -80,7 +80,7 @@ echo $sms->sendMessage('0936*******','Test Message');
 `sendAuthCode($reciver_number, $text_message = null, $autoGenerateCode = true)`
 
 <div dir="rtl" >
-نکته : پارامتر autoGenerateCode$ اختیاری می باشد.
+نکته : اگر مقدار پارامتر autoGenerateCode$ برابر true باشد سامانه بطوراتوماتیک یک کد فعال سازی به کاربر ارسال می کند و چنانچه برابر با false  باشد متن حاوی کد دلخواه ارسال می گردد..
 </div>
 <div dir="rtl" >
  مثال :
@@ -97,6 +97,10 @@ echo $sms->sendAuthCode('0936*******', 'Your Auth Code: 12346', false);
 <div dir="rtl" >
     
 #### 3-  بررسی صحت کد دریافتی احراز هویت ارسال شده توسط کاربر
+</div>
+
+<div dir="rtl" >
+ چنانچه کد فعال سازی بصورت اتوماتیک به کاربر ارسال شده باشد، جهت صحت کد دریافتی از سوی کاربر می توان از این متد استفاده نمود. 
 </div>
 
 `checkAuthCode($reciver_number, $reciver_code)`
