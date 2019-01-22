@@ -105,6 +105,7 @@ class Sms
         }
 
         $response = \json_decode((string) $response->getBody(), true);
+
         return $response;
     }
 
