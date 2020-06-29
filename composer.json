@@ -28,7 +28,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Trez\\RayganSms\\": "src/"
+      "Trez\\RayganSms\\": "src/Laravel/"
     }
   },
   "config": {
