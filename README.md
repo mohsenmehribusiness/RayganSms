@@ -70,11 +70,6 @@ Trez\RayganSms\RayganSmsServiceProvider::class,
 ...
 ```
 
-<div dir="rtl">
-    
-### فاده در لاراول
-
-</div>
 
 <div dir="rtl">
     هم اکنون می توانید با استفاده از Facade این پکیج (RayganSms) به متدهای پکیج دسترسی نمایید :
@@ -172,11 +167,6 @@ if($result){
 }
 ```
 
-<div dir="rtl">
-    
-## Laravel
-
-</div>
 
 <div dir="rtl">
     
